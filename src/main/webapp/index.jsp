@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>Hello World!</title>
+<title>Hello Guys!</title>
 </head>
 <body>
-	<h1>Hello World!</h1>
+	<h1>Hello All!</h1>
 	<p>
-		It is now
+		It is now build and deployed
 		<%= new java.util.Date() %></p>
 	<p>
 		You are coming from 
