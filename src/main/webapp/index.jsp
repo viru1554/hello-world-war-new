@@ -3,7 +3,7 @@
 <title> Hello Guys!</title>
 </head>
 <body>
-	<h1>Hello good evening all !</h1>
+	<h1>Suuceesfully installed tomcat !</h1>
 	<p>
 		It is now build and deployed
 		<%= new java.util.Date() %></p>
