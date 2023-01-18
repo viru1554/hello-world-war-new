@@ -1,21 +1,37 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage('clone step') {
-            steps {
-                sh 'rm -rf hello-world-war'
-                sh 'git clone https://github.com/venkibiligere/hello-world-war.git'
+    environment {
+        PATH = "$PATH:/usr/share/maven/bin"
+    }
+    stages{
+       stage('GetCode'){
+            steps{
+                git 'https://github.com/viru1554/java-login-app.git'
+            }
+         }
+       stage('mvn clean install'){
+            steps{
+                sh 'mvn clean install'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'mvn package'
+       stage('mvn clean package'){
+            steps{
+                sh 'mvn clean package'
             }
         }
-        stage('Deploy step') {
-             steps {
-                 sh 'sudo cp ${WORKSPACE}/target/hello-world-war-1.0.0.war /var/lib/tomcat9/webapps'       
+        stage('mvn test'){
+            steps{
+                sh 'mvn test'
             }
         }
+       stage('SonarQube analysis') {
+            steps{
+                withSonarQubeEnv('sonarqube-8.3') { 
+                sh ''' mvn verify sonar:sonar -Dsonar.login=admin -Dsonar.password=admin'''
+                }
+                
+            }
+        }
+       
     }
 }
