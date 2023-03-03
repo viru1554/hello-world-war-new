@@ -4,7 +4,7 @@
 </head>
 <body>
 	<h1>Assignment done!</h1>
-	<h1>Succefully install comleted!</h1>
+	<h1>TOMCAT INSTALL using Docker!</h1>
 
 	<p>
 		It is now build and deployed
