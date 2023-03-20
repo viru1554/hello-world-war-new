@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkinspod
+  labels:
+    app: jenkins
+  namespace: myenv
+spec:
+  containers:
+    - image: jenkins/jenkins:lts
+      name: jenkins
