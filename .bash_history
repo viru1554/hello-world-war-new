@@ -1347,3 +1347,12 @@ git push https://github.com/viru1554/hello-world-war.git
 git push https://github.com/viru1554/hello-world-war-new.git
 git push --help
 git push --all https://github.com/viru1554/hello-world-war-new.git
+apt update 
+git branch 
+git status 
+git add .
+git status 
+git commit -m "k8's manifest files"
+git status 
+git push --all https://github.com/viru1554/hello-world-war-new.git
+git pull https://github.com/viru1554/hello-world-war-new.git
