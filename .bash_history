@@ -872,3 +872,478 @@ kubectl apply -f affinity.yml
 vi affinity.yml 
 kubectl apply -f affinity.yml 
 kubectl get pods -owide
+kubectl get nodes
+kubectl get pods -owide
+kubectl delete -f affinity.yml 
+kubectl get pods -owide
+vi a
+vi affinity.yml 
+kubectl apply -f affinity.yml 
+kubectl get pods -owide
+kubectl describe nodes ip-10-0-0-6.us-west-1.compute.internal
+kubectl get pods -owide
+kubectl get nodes -owide
+kubectl get nodes 
+kubectl delete -f affinity.yml 
+kubectl get pods -owide
+kubectl apply -f affinity.yml 
+kubectl get pods -owide
+kubectl delete -f affinity.yml 
+kubectl get pods -owide
+kubectl label nodes ip-10-0-0-142.us-west-1.compute.internal env=qa
+kubectl get pods -owide
+kubectl get nodes 
+git status
+git init
+git status
+git add .
+git status
+git commit -m "K8's files"
+git status
+git push https://github.com/viru1554/hello-world-war-new.git
+git push https://github.com/viru1554/hello-world-war.git
+git push
+git push https://github.com/viru1554/hello-world-war-new.git
+git pull https://github.com/viru1554/hello-world-war-new.git
+git config --global
+git config pull.rebase true
+git config pull.rebase false
+git config pull.ff only
+ls
+mv limrangememory.yml rangememory.yml
+git pull https://github.com/viru1554/hello-world-war-new.git
+git push https://github.com/viru1554/hello-world-war-new.git
+apt get-update
+apt get update
+apt update
+git push https://github.com/viru1554/hello-world-war-new.git
+kubectl get pods -owide
+vi affinity.yml 
+kubectl apply -f affinity.yml 
+kubectl get pods -owide
+vi secrets_temp.yml 
+kubectl apply -f secrets_temp.yml 
+kubectl get secrets
+vi pod_secrets.yml
+kubectl apply -f pod_secrets.yml 
+kubectl get secrets
+kubectl get pods
+kubectl exec -it secret-details /bin/sh
+kubectl get nodes -owide
+kubectl get pods -owide
+kubectl delete -f affinity.yml 
+kubectl get pods -owide
+kubectl delete -f affinity.yml 
+kubectl get pods -owide
+kubectl apply -f affinity.yml 
+kubectl get pods -owide
+kubectl delete pods my-deployment-694dcf6b64-4mwk8 my-deployment-694dcf6b64-d6fph my-deployment-694dcf6b64-xcjpj
+kubectl get pods -owide
+kubectl apply -f affinity.yml 
+kubectl get pods -owide
+kubectl delete -f affinity.yml 
+kubectl get pods -owide
+kubectl apply -f affinity.yml 
+kubectl get pods -owide
+kubectl delete -f affinity.yml 
+vi configmap.yml
+kubectl apply -f configmap.yml
+kubectl get configmap
+vi Configmap_pod.yml
+kubectl apply -f Configmap_pod.yml 
+kubectl get nodes
+kubectl get pods
+kubectl exec -it configmap-demo-pod /bin/sh
+vi Configmap_pod.yml 
+vi configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl exec -it configmap-demo-pod /bin/sh
+kubectl delete -f configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl exec -it configmap-demo-pod /bin/sh
+vi configmap.yml 
+kubectl delete -f Configmap_pod.yml 
+kubectl apply -f Configmap_pod.yml 
+kubectl grt pos
+kubectl get pods
+kubectl exec -it configmap-demo-pod /bin/sh
+vi configmap.yml 
+cat configmap.yml 
+kubectl exec -it configmap-demo-pod /bin/sh
+kubectl delete -f Configmap_pod.yml 
+vi configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl delete -f configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl get pods
+kubectl apply -f Configmap_pod.yml 
+kubectl get pods
+kubectl exec -it configmap-demo-pod /bin/sh
+vi configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl delete -f Configmap_pod.yml 
+kubectl apply -f Configmap_pod.yml 
+kubectl get pods
+kubectl exec -it configmap-demo-pod /bin/sh
+vi configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl delete -f Configmap_pod.yml 
+kubectl apply -f Configmap_pod.yml 
+kubectl get pods
+kubectl exec -it configmap-demo-pod /bin/sh
+vi configmap.yml 
+kubectl apply -f configmap.yml 
+vi configmap.yml 
+kubectl apply -f configmap.yml 
+kubectl delete -f Configmap_pod.yml 
+kubectl apply -f Configmap_pod.yml 
+kubectl get pods
+kubectl exec -it configmap-demo-pod /bin/sh
+kubectl create secret generic db-user-pass     --from-literal=username=admin     --from-literal=password='S!B\*d$zDsb='
+kubectl get secrets
+kubectl get secrets db-user-pass -o yml
+kubectl get secrets db-user-pass -o yaml
+echo YWRtaW4= | base64 --decode
+echo UyFCXCpkJHpEc2I9 | base64 --decode
+vi secrets_temp.yml
+vi Configmap_pod.yml 
+vi Configmap_pod.yml 
+vi configmap.yml 
+vi Configmap_pod.yml 
+vi configmap.yml 
+kubectl get secrets
+kubectl get nodes
+kubectl get pods
+kubectl get nodes
+kubectl label node ip-10-0-0-50.us-west-1.compute.internal env=dev
+kubectl label node ip-10-0-0-50.us-west-1.compute.internal env=qa
+kubectl label node ip-10-0-0-6.us-west-1.compute.internal env=dev
+kubectl describe node ip-10-0-0-6.us-west-1.compute.internal
+kubectl describe node ip-10-0-0-50.us-west-1.compute.internal
+ls
+kubectl delete -f Configmap_pod.yml 
+kubectl get pods
+kubectl delete -f configmap.yml 
+kubectl get pods
+ls
+kubectl delete -f pod_secrets.yml 
+kubectl get pods
+kubectl label node ip-10-0-0-6.us-west-1.compute.internal env=dev
+vi deployment.yml 
+ls
+cat jenkinspod.yml 
+vi deployment.yml 
+cp deployment.yml Deployment.yml
+vi Deployment.yml 
+vi Deployment.yml 
+kubectl label node ip-10-0-0-50.us-west-1.compute.internal
+kubectl label node ip-10-0-0-50.us-west-1.compute.internal env-
+kubectl label node ip-10-0-0-50.us-west-1.compute.internal env
+kubectl label nodes ip-10-0-0-50.us-west-1.compute.internal environment-
+kubectl label nodes ip-10-0-0-50.us-west-1.compute.internal env-
+kubectl label node ip-10-0-0-50.us-west-1.compute.internal environment-
+kubectl label node ip-10-0-0-50.us-west-1.compute.internaal env-
+kubectl label nodes ip-10-0-0-50.us-west-1.compute.internaal env-
+kubectl label node ip-10-0-0-50.us-west-1.compute.internaal env-
+kubectl label node ip-10-0-0-50.us-west-1.compute.internaal env=qa
+vi Deployment.yml 
+kubectl apply -f Deployment.yml 
+vi Deployment.yml 
+apt update 
+vi Deployment.yml 
+kubectl apply -f Deployment.yml 
+vi Deployment.yml 
+kubectl apply -f Deployment.yml 
+vi Deployment.yml 
+kubectl apply -f Deployment.yml 
+kubectl get pods
+kubectl get nodes
+ev
+kubectl label node ip-10-0-0-6.us-west-1.compute.internal env=prod
+kubectl label node --help
+kubectl get pods
+kubectl delete -f Deployment.yml 
+kubectl get pods
+kubectl label nodes  environment-
+kubectl label node ip-10-0-0-6.us-west-1.compute.internal env=dev-
+kubectl label node ip-10-0-0-6.us-west-1.compute.internal env=qa
+kubectl apply -f Deployment.yml 
+kubectl get pods
+vi Deployment.yml 
+kubectl delete -f Deployment.yml 
+kubectl apply -f Deployment.yml 
+kubectl get pods
+kubectl get nodes
+kubectl apply -f Deployment.yml 
+kubectl get pods
+kubectl exec -it my-deployment-6fff878688-269dx /bin/bash
+vi Deployment.yml 
+kubectl get pods -A
+kubectl get pods kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.14"
+kubectl get pods -A
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.14"
+kubectl get pods
+history 
+kubectl get pods
+kubectl get pods -A
+kubectl describe pod tigera-operator-cffd8458f-zzf8b
+kubectl describe pod tigera-operator
+kubectl delete -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.14"
+kubectl get pods -A
+kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl get nodes
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.14"
+kubectl get pods -A
+kubectl get pods
+kubectl get pods -A
+vi pv.yml
+kubectl apply -f pv.yml
+kubectl get pv
+vi pvc.yml
+vi pv.yml
+kubectl apply -f pv.yml
+kubectl get pv
+kubectl apply -f pvc.yml
+kubectl get pvc
+ls
+cp Deployment.yml pvc_deploy.yml
+vi pvc_deploy.yml 
+kubectl get pods -A
+LS
+ls
+kubectl get pvc
+kubectl get pv
+kubectl get pvc
+kubectl get pods -A
+kubectl get pod
+kubectl get nodes
+kubectl get pod
+vi pvc_deploy.yml 
+kubectl delete -f pvc_deploy.yml 
+kubectl get pod
+kubectl delete secrets secret-details
+ls
+vi pod_secrets.yml 
+vi secrets_temp.yml 
+kubectl get secrets
+kubectl delete -f pod_secrets.yml 
+kubectl delete -f pod_secrets.yml --force
+kubectl get secrets
+kubectl get pod
+kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.ya
+kubectl get pod
+kubectl describe pod tigera-operator-cffd8458f-lq9m9 
+kubectl describe pod tigera-operator
+kubectl get pods --all namespaces
+kubectl get pod --all-namespaces
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces | grep evicted
+kubectl get pods --all-namespaces | grep -i evicted
+kubectl get pods --all-namespaces | grep -i evicted | awk '{print $2, "--namespaces", $1}'
+kubectl get pods --all-namespaces | grep -i evicted | awk '{print $2, "--namespaces", $1}' | xargs kubectl delete pod
+kubectl get pods --all-namespaces | grep -i evicted | awk '{print $2, "--namespaces", $1}' | xargs kubectl delete pod tigera-operator-cffd8458f-zwzm9 --namespaces tigera-operator
+kubectl get pod
+kubectl get pods -A
+kubectl get nodes
+kubectl get pv
+kubectl get pvc
+kubectl get pods -owide
+kubectl get nodes -owide
+kubectl get pods -owide
+kubectl get pods 
+kubectl get pods -A
+kubectl get pods 
+kubectl get pods -A
+kubectl get nodes
+ls
+vi pv.yml 
+kubectl delete pv pv.yml 
+vi pv.yml 
+kubectl apply -f pv.yml 
+kubectl get pv
+ls
+vi pvc.yml 
+kubectl apply -f pvc.yml 
+kubectl get pvc
+kubectl get pv
+kubectl get pvc
+vi pvc_deploy.yml 
+kubectl get pods
+kubectl apply -f pvc_deploy.yml
+vi pvc_deploy.yml 
+kubectl apply -f pvc_deploy.yml
+vi pvc_deploy.yml 
+kubectl apply -f pvc_deploy.yml
+vi pvc_deploy.yml 
+kubectl apply -f pvc_deploy.yml
+kubectl get pods
+kubectl get pods -owide
+kubectl get nodes
+kubectl get pods -owide
+kubectl delete -f pvc_deploy.yml
+kubectl apply -f pvc_deploy.yml
+kubectl get pods -owide
+kubectl delete -f pvc_deploy.yml
+kubectl get pods -owide
+kubectl apply -f pvc_deploy.yml
+kubectl get pods -owide
+kubectl delete -f pvc_deploy.yml
+kubectl get pods -owide
+kubectl get nodes
+kubectl apply -f pvc_deploy.yml
+kubectl get pods -owide
+kubectl get pvc
+kubectl get pv
+kubectl get pods -owide
+vi pvc_deploy.yml 
+kubectl delete -f pvc_deploy.yml
+kubectl get pods -owide
+vi pvc_deploy.yml 
+kubectl apply -f pvc_deploy.yml
+kubectl get pods -owide
+kubectl get pods
+kubectl get pod
+kubectl get pods
+kubectl delete -f pvc_deploy.yml
+vi storageclass.yml
+kubectl apply -f storageclass.yml 
+kubectl get sc
+vi pvc.yml 
+kubectl apply -f pvc.yml 
+vi pvc.yml 
+kubectl apply -f pvc.yml 
+vi pvc.yml 
+kubectl apply -f pvc.yml 
+kubectl get pv
+kubectl get pvc
+kubectl apply -f pvc_deploy.yml 
+kubectl get pvc
+kubectl get pv
+kubectl get pods
+kubectl delete pods my-deployment-7f7667487-c6dxg my-deployment-7f7667487-2bfzx my-deployment-7f7667487-wvpkv
+kubectl get pods
+kubectl get pv
+kubectl get pvc
+kubectl delete -f pvc_deploy.yml 
+kubectl get pv
+kubectl get pvc
+kubectl delete -f pvc_deploy.yml 
+kubectl get pods
+kubectl delete -f pvc_deploy.yml 
+kubectl get pvc
+kubectl delete -f pvc.yml 
+kubectl get pvc
+kubectl get pv
+kubectl get pods
+kubectl get svc
+kubectl delete svc loadbalancer
+kubectl delete svc nodeport
+kubectl get svc
+vi statefulset.yml
+kubectl get sc
+vi statefulset.yml
+kubectl apply -f statefulset.yml 
+kubectl get pods
+kubectl get pvc
+kubectl get pv
+kubectl get svc
+for i in 0 1; do kubectl exec "web-$i" -- sh -c 'hostname'; done
+kubectl run -i --tty --image busybox:1.28 dns-test --restart=Never --rm
+kubectl run -i --tty --image busybox:1.28 dns-test --restart=Never --rm
+nslookup web-0.nginx
+kubectl get pods
+kubectl delete pod web-2
+kubectl get pods
+kubectl scale sts web --replica=5
+kubectl scale sts web --replicas=5
+kubectl get pods
+kubectl stsweb-p '("spec:{replica":3)}'
+kubectl sts web -p '("spec:{replica":3)}'
+kubectl sts web -p '("spec:{replicas":3)}'
+kubectl patch sts web -p '("spec:{replicas":3)}'
+kubectl patch sts web -p '("spec":{"replicas":3)}'
+kubectl patch sts web -p '{"spec":{"replicas":3}}'
+kubectl get pods
+kubectl delete -f statefulset.yml 
+kubectl get pods
+vi livneness.yml
+kubectl apply -f livneness.yml 
+kubectl get pods
+kubectl get pv
+kubectl get pvc
+kubectl delete -f pvc.yml 
+kubectl delete pvc --all
+kubectl get pvc
+kubectl get pv
+kubectl get pvc
+kubectl get pods
+kubectl delete pods liveness-exec
+kubectl get pods
+kubectl delete pods liveness-exec --force
+kubectl get pods
+wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/aws/nlb-with-tls-termination/deploy.yaml
+ls
+vi deploy.yaml 
+kubectl apply -f deploy.yaml 
+kubectl get pods
+kubectl get svc
+kubectl get pv
+kubectl get pvc
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl delete -f deploy.yaml --force
+kubectl get svc -A
+kubectl get ns
+kubectl get rs
+kubectl get pods
+kubectl get pv
+kubectl get pvc
+kubectl apply -f deploy.yaml --force
+kubectl get svc -A
+kubectl apply -f deploy.yaml 
+kubectl delete -f deploy.yaml --force
+kubectl get svc -A
+kubectl apply -f deploy.yaml
+vi deploy.yaml 
+kubectl delete -f deploy.yaml
+wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/aws/nlb-with-tls-termination/deploy.yaml
+rm deploy.yaml.1 
+kubectl get pods
+kubectl get nodes
+rm deploy.yaml
+wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.6.4/deploy/static/provider/aws/nlb-with-tls-termination/deploy.yaml
+vi deploy.yaml 
+kubectl apply -f deploy.yaml 
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl delete ns ingress-nginx
+kubectl delete ns ingress-nginx --force
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl describe ns ingress-nginx
+kubectl get pods
+kubectl apply -f deploy.yaml 
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+history 
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl describe svc ingress-nginx -n ingress-nginx
+kubectl delete -f deploy.yaml 
+kubectl get ns
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get ns
+kubectl get all -n ingress-nginx
+kubectl delete -f deploy.yaml 
+kubectl apply -f deploy.yaml 
+git init
+git push https://github.com/viru1554/hello-world-war-new.git
+git push https://github.com/viru1554/hello-world-war.git
+git push https://github.com/viru1554/hello-world-war-new.git
+git push --help
+git push --all https://github.com/viru1554/hello-world-war-new.git

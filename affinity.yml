@@ -26,5 +26,6 @@ spec:
                   - key: env
                     operator: In
                     values:
-                      - prod
+                      - dev
+                      - qa
 
