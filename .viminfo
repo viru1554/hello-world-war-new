@@ -10,11 +10,24 @@
 
 # hlsearch on (H) or off (h):
 ~h
+# Last Search Pattern:
+~MSle0~/annotations
+
 # Command Line History (newest to oldest):
-:wq!
-|2,0,1679683692,,"wq!"
 :q!
-|2,0,1679659700,,"q!"
+|2,0,1680017936,,"q!"
+:wq!
+|2,0,1679988685,,"wq!"
+:19
+|2,0,1679988565,,"19"
+:d99999
+|2,0,1679942142,,"d99999"
+:d99
+|2,0,1679942114,,"d99"
+:d9999
+|2,0,1679942095,,"d9999"
+:d999
+|2,0,1679911516,,"d999"
 :wq!`
 |2,0,1679583961,,"wq!`"
 :24
@@ -23,6 +36,14 @@
 |2,0,1678883594,,"6"
 
 # Search String History (newest to oldest):
+?/annotations
+|2,1,1680017896,47,"annotations"
+?/annotatations
+|2,1,1680017877,47,"annotatations"
+?/spec
+|2,1,1679988225,47,"spec"
+?/10.0.0.0
+|2,1,1679942067,47,"10.0.0.0"
 
 # Expression History (newest to oldest):
 
@@ -31,271 +52,532 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
-""1	LINE	0
-	  volumeName: demo-pv
-|3,1,1,1,1,0,1679594768,"  volumeName: demo-pv"
 "2	LINE	0
-	  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-|3,0,2,1,1,0,1679594708,"  storageClassName: \"\" # Empty string must be explicitly set otherwise default StorageClass will be set"
+	apiVersion: v1
+	kind: Namespace
+	metadata:
+	  labels:
+	    app.kubernetes.io/instance: ingress-nginx
+	    app.kubernetes.io/name: ingress-nginx
+	  name: ingress-nginx
+	---
+	apiVersion: v1
+	automountServiceAccountToken: true
+	kind: ServiceAccount
+	metadata:
+	  labels:
+	    app.kubernetes.io/component: controller
+	    app.kubernetes.io/instance: ingress-nginx
+	    app.kubernetes.io/name: ingress-nginx
+	    app.kubernetes.io/part-of: ingress-nginx
+	    app.kubernetes.io/version: 1.6.4
+	  name: ingress-nginx
+	  namespace: ingress-nginx
+	---
+	apiVersion: v1
+	kind: ServiceAccount
+	metadata:
+	  labels:
+	    app.kubernetes.io/component: admission-webhook
+	    app.kubernetes.io/instance: ingress-nginx
+	    app.kubernetes.io/name: ingress-nginx
+	    app.kubernetes.io/part-of: ingress-nginx
+	    app.kubernetes.io/version: 1.6.4
+	  name: ingress-nginx-admission
+	  namespace: ingress-nginx
+	---
+	apiVersion: rbac.authorization.k8s.io/v1
+	kind: Role
+	metadata:
+	  labels:
+	    app.kubernetes.io/component: controller
+	    app.kubernetes.io/instance: ingress-nginx
+	    app.kubernetes.io/name: ingress-nginx
+	    app.kubernetes.io/part-of: ingress-nginx
+	    app.kubernetes.io/version: 1.6.4
+	  name: ingress-nginx
+	  namespace: ingress-nginx
+	rules:
+	- apiGroups:
+	  - ""
+	  resources:
+	  - namespaces
+	  verbs:
+|3,0,2,1,50,0,1679942114,"apiVersion: v1","kind: Namespace","metadata:","  labels:","    app.kubernetes.io/instance: ingress-nginx","    app.kubernetes.io/name: ingress-nginx","  name: ingress-nginx","---","apiVersion: v1","automountServiceAccountToken: true","kind: ServiceAccount","metadata:","  labels:","    app.kubernetes.io/component: controller","    app.kubernetes.io/instance: ingress-nginx","    app.kubernetes.io/name: ingress-nginx",>46
+|<"    app.kubernetes.io/part-of: ingress-nginx","    app.kubernetes.io/version: 1.6.4","  name: ingress-nginx","  namespace: ingress-nginx","---","apiVersion: v1","kind: ServiceAccount","metadata:","  labels:","    app.kubernetes.io/component: admission-webhook","    app.kubernetes.io/instance: ingress-nginx","    app.kubernetes.io/name: ingress-nginx","    app.kubernetes.io/part-of: ingress-nginx","    app.kubernetes.io/version: 1.6.4","  name: ingress-nginx-admission",>28
+|<"  namespace: ingress-nginx","---","apiVersion: rbac.authorization.k8s.io/v1","kind: Role","metadata:","  labels:","    app.kubernetes.io/component: controller","    app.kubernetes.io/instance: ingress-nginx","    app.kubernetes.io/name: ingress-nginx","    app.kubernetes.io/part-of: ingress-nginx","    app.kubernetes.io/version: 1.6.4","  name: ingress-nginx","  namespace: ingress-nginx","rules:","- apiGroups:","  - \"\"","  resources:","  - namespaces","  verbs:"
 "3	LINE	0
+	# Default values for jenkin.
+	# This is a YAML-formatted file.
+	# Declare variables to be passed into your templates.
 	
-|3,0,3,1,1,0,1679594409,""
+	replicaCount: 1
+	
+	image:
+	  repository: nginx
+	  pullPolicy: IfNotPresent
+	  # Overrides the image tag whose default is the chart appVersion.
+	  tag: ""
+	
+	imagePullSecrets: []
+	nameOverride: ""
+	fullnameOverride: ""
+	
+	serviceAccount:
+	  # Specifies whether a service account should be created
+	  create: true
+	  # Annotations to add to the service account
+	  annotations: {}
+	  # The name of the service account to use.
+	  # If not set and create is true, a name is generated using the fullname template
+	  name: ""
+	
+	podAnnotations: {}
+	
+	podSecurityContext: {}
+	  # fsGroup: 2000
+	
+	securityContext: {}
+	  # capabilities:
+	  #   drop:
+	  #   - ALL
+	  # readOnlyRootFilesystem: true
+	  # runAsNonRoot: true
+	  # runAsUser: 1000
+	
+	service:
+	  type: ClusterIP
+	  port: 80
+	
+	ingress:
+	  enabled: false
+	  className: ""
+	  annotations: {}
+	    # kubernetes.io/ingress.class: nginx
+	    # kubernetes.io/tls-acme: "true"
+	  hosts:
+	    - host: chart-example.local
+|3,0,3,1,50,0,1679911516,"# Default values for jenkin.","# This is a YAML-formatted file.","# Declare variables to be passed into your templates.","","replicaCount: 1","","image:","  repository: nginx","  pullPolicy: IfNotPresent","  # Overrides the image tag whose default is the chart appVersion.","  tag: \"\"","","imagePullSecrets: []","nameOverride: \"\"","fullnameOverride: \"\"","","serviceAccount:",>59
+|<"  # Specifies whether a service account should be created","  create: true","  # Annotations to add to the service account","  annotations: {}","  # The name of the service account to use.","  # If not set and create is true, a name is generated using the fullname template","  name: \"\"","","podAnnotations: {}","","podSecurityContext: {}","  # fsGroup: 2000","","securityContext: {}","  # capabilities:","  #   drop:","  #   - ALL","  # readOnlyRootFilesystem: true",>24
+|<"  # runAsNonRoot: true","  # runAsUser: 1000","","service:","  type: ClusterIP","  port: 80","","ingress:","  enabled: false","  className: \"\"","  annotations: {}","    # kubernetes.io/ingress.class: nginx","    # kubernetes.io/tls-acme: \"true\"","  hosts:","    - host: chart-example.local"
 "4	LINE	0
-	        env: dev
-|3,0,4,1,1,0,1679585709,"        env: dev"
+	# Default values for jenkin.
+	# This is a YAML-formatted file.
+	# Declare variables to be passed into your templates.
+	
+	replicaCount: 1
+	
+	image:
+	  repository: nginx
+	  pullPolicy: IfNotPresent
+	  # Overrides the image tag whose default is the chart appVersion.
+	  tag: ""
+	
+	imagePullSecrets: []
+	nameOverride: ""
+	fullnameOverride: ""
+	
+	serviceAccount:
+	  # Specifies whether a service account should be created
+	  create: true
+	  # Annotations to add to the service account
+	  annotations: {}
+	  # The name of the service account to use.
+	  # If not set and create is true, a name is generated using the fullname template
+	  name: ""
+	
+	podAnnotations: {}
+	
+	podSecurityContext: {}
+	  # fsGroup: 2000
+	
+	securityContext: {}
+	  # capabilities:
+	  #   drop:
+	  #   - ALL
+	  # readOnlyRootFilesystem: true
+	  # runAsNonRoot: true
+	  # runAsUser: 1000
+	
+	service:
+	  type: ClusterIP
+	  port: 80
+	
+	ingress:
+	  enabled: false
+	  className: ""
+	  annotations: {}
+	    # kubernetes.io/ingress.class: nginx
+	    # kubernetes.io/tls-acme: "true"
+	  hosts:
+	    - host: chart-example.local
+|3,0,4,1,50,0,1679911516,"# Default values for jenkin.","# This is a YAML-formatted file.","# Declare variables to be passed into your templates.","","replicaCount: 1","","image:","  repository: nginx","  pullPolicy: IfNotPresent","  # Overrides the image tag whose default is the chart appVersion.","  tag: \"\"","","imagePullSecrets: []","nameOverride: \"\"","fullnameOverride: \"\"","","serviceAccount:",>59
+|<"  # Specifies whether a service account should be created","  create: true","  # Annotations to add to the service account","  annotations: {}","  # The name of the service account to use.","  # If not set and create is true, a name is generated using the fullname template","  name: \"\"","","podAnnotations: {}","","podSecurityContext: {}","  # fsGroup: 2000","","securityContext: {}","  # capabilities:","  #   drop:","  #   - ALL","  # readOnlyRootFilesystem: true",>24
+|<"  # runAsNonRoot: true","  # runAsUser: 1000","","service:","  type: ClusterIP","  port: 80","","ingress:","  enabled: false","  className: \"\"","  annotations: {}","    # kubernetes.io/ingress.class: nginx","    # kubernetes.io/tls-acme: \"true\"","  hosts:","    - host: chart-example.local"
 "5	LINE	0
-	      nodeSelector:
-|3,0,5,1,1,0,1679585708,"      nodeSelector:"
+	  - kubernetes
+|3,0,5,1,1,0,1679845266,"  - kubernetes"
 "6	LINE	0
-	        env: dev
-|3,0,6,1,1,0,1679585577,"        env: dev"
+	  finalizers:
+|3,0,6,1,1,0,1679845265,"  finalizers:"
 "7	LINE	0
-	      nodeSelector:
-|3,0,7,1,1,0,1679585576,"      nodeSelector:"
+	  ipFamilyPolicy: SingleStack
+|3,0,7,1,1,0,1679763797,"  ipFamilyPolicy: SingleStack"
 "8	LINE	0
-	
-|3,0,8,1,1,0,1679583853,""
+	  - IPv4
+|3,0,8,1,1,0,1679763794,"  - IPv4"
 "9	LINE	0
-	
-|3,0,9,1,1,0,1679583542,""
+	  ipFamilies:
+|3,0,9,1,1,0,1679763793,"  ipFamilies:"
 "-	CHAR	0
 	1
 |3,0,36,0,1,0,1679142645,"1"
 
 # File marks:
-'0  329  32  ~/deploy.yaml
-|4,48,329,32,1679683692,"~/deploy.yaml"
-'1  329  32  ~/deploy.yaml
-|4,49,329,32,1679683184,"~/deploy.yaml"
-'2  329  32  ~/deploy.yaml
-|4,50,329,32,1679659719,"~/deploy.yaml"
-'3  329  32  ~/deploy.yaml
-|4,51,329,32,1679659719,"~/deploy.yaml"
-'4  329  34  ~/deploy.yaml
-|4,52,329,34,1679659700,"~/deploy.yaml"
-'5  329  34  ~/deploy.yaml
-|4,53,329,34,1679659700,"~/deploy.yaml"
-'6  329  34  ~/deploy.yaml
-|4,54,329,34,1679659700,"~/deploy.yaml"
-'7  329  34  ~/deploy.yaml
-|4,55,329,34,1679659700,"~/deploy.yaml"
-'8  325  11  ~/deploy.yaml
-|4,56,325,11,1679659683,"~/deploy.yaml"
-'9  325  11  ~/deploy.yaml
-|4,57,325,11,1679659683,"~/deploy.yaml"
+'0  345  2  ~/old_deploy.yml
+|4,48,345,2,1680017936,"~/old_deploy.yml"
+'1  1  14  ~/deployment.yml
+|4,49,1,14,1680017442,"~/deployment.yml"
+'2  641  0  ~/deploy.yml
+|4,50,641,0,1680017377,"~/deploy.yml"
+'3  1  0  ~/deploy
+|4,51,1,0,1680017357,"~/deploy"
+'4  22  9  ~/jenkins/templates/deployment.yml
+|4,52,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+'5  21  9  ~/jenkins/templates/deployment.yml
+|4,53,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+'6  22  35  ~/jenkins/templates/deployment.yml
+|4,54,22,35,1679988467,"~/jenkins/templates/deployment.yml"
+'7  21  35  ~/jenkins/templates/deployment.yml
+|4,55,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+'8  439  4  ~/jenkins/templates/old_deploy.yml
+|4,56,439,4,1679988344,"~/jenkins/templates/old_deploy.yml"
+'9  439  4  ~/jenkins/templates/old_deploy.yml
+|4,57,439,4,1679988344,"~/jenkins/templates/old_deploy.yml"
 
 # Jumplist (newest first):
--'  329  32  ~/deploy.yaml
-|4,39,329,32,1679683692,"~/deploy.yaml"
--'  329  32  ~/deploy.yaml
-|4,39,329,32,1679683184,"~/deploy.yaml"
--'  329  32  ~/deploy.yaml
-|4,39,329,32,1679659719,"~/deploy.yaml"
--'  329  34  ~/deploy.yaml
-|4,39,329,34,1679659700,"~/deploy.yaml"
--'  325  11  ~/deploy.yaml
-|4,39,325,11,1679659685,"~/deploy.yaml"
--'  325  11  ~/deploy.yaml
-|4,39,325,11,1679659685,"~/deploy.yaml"
--'  325  11  ~/deploy.yaml
-|4,39,325,11,1679659685,"~/deploy.yaml"
--'  325  11  ~/deploy.yaml
-|4,39,325,11,1679659685,"~/deploy.yaml"
--'  325  11  ~/deploy.yaml
-|4,39,325,11,1679659683,"~/deploy.yaml"
--'  285  0  ~/deploy.yaml
-|4,39,285,0,1679659343,"~/deploy.yaml"
--'  285  0  ~/deploy.yaml
-|4,39,285,0,1679659343,"~/deploy.yaml"
--'  285  0  ~/deploy.yaml
-|4,39,285,0,1679659343,"~/deploy.yaml"
--'  285  0  ~/deploy.yaml
-|4,39,285,0,1679659343,"~/deploy.yaml"
--'  285  0  ~/deploy.yaml
-|4,39,285,0,1679659343,"~/deploy.yaml"
--'  285  0  ~/deploy.yaml
-|4,39,285,0,1679659340,"~/deploy.yaml"
--'  1  0  ~/deploy.yaml
-|4,39,1,0,1679658146,"~/deploy.yaml"
--'  1  0  ~/deploy.yaml
-|4,39,1,0,1679658146,"~/deploy.yaml"
--'  1  0  ~/deploy.yaml
-|4,39,1,0,1679658146,"~/deploy.yaml"
--'  1  0  ~/deploy.yaml
-|4,39,1,0,1679658146,"~/deploy.yaml"
--'  1  0  ~/deploy.yaml
-|4,39,1,0,1679658146,"~/deploy.yaml"
--'  1  0  ~/deploy.yaml
-|4,39,1,0,1679658146,"~/deploy.yaml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  21  21  ~/livneness.yml
-|4,39,21,21,1679603742,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
--'  1  0  ~/livneness.yml
-|4,39,1,0,1679603538,"~/livneness.yml"
+-'  345  2  ~/old_deploy.yml
+|4,39,345,2,1680017936,"~/old_deploy.yml"
+-'  323  16  ~/old_deploy.yml
+|4,39,323,16,1680017908,"~/old_deploy.yml"
+-'  329  32  ~/old_deploy.yml
+|4,39,329,32,1680017896,"~/old_deploy.yml"
+-'  1  14  ~/deployment.yml
+|4,39,1,14,1680017442,"~/deployment.yml"
+-'  1  14  ~/deployment.yml
+|4,39,1,14,1680017442,"~/deployment.yml"
+-'  641  0  ~/deploy.yml
+|4,39,641,0,1680017377,"~/deploy.yml"
+-'  641  0  ~/deploy.yml
+|4,39,641,0,1680017377,"~/deploy.yml"
+-'  641  0  ~/deploy.yml
+|4,39,641,0,1680017377,"~/deploy.yml"
+-'  641  0  ~/deploy.yml
+|4,39,641,0,1680017377,"~/deploy.yml"
+-'  1  0  ~/deploy.yml
+|4,39,1,0,1680017363,"~/deploy.yml"
+-'  1  0  ~/deploy.yml
+|4,39,1,0,1680017363,"~/deploy.yml"
+-'  1  0  ~/deploy.yml
+|4,39,1,0,1680017363,"~/deploy.yml"
+-'  1  0  ~/deploy.yml
+|4,39,1,0,1680017363,"~/deploy.yml"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  1  0  ~/deploy
+|4,39,1,0,1680017357,"~/deploy"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  22  9  ~/jenkins/templates/deployment.yml
+|4,39,22,9,1679988685,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  9  ~/jenkins/templates/deployment.yml
+|4,39,21,9,1679988606,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  21  35  ~/jenkins/templates/deployment.yml
+|4,39,21,35,1679988467,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
+-'  1  0  ~/jenkins/templates/deployment.yml
+|4,39,1,0,1679988354,"~/jenkins/templates/deployment.yml"
 
 # History of marks within files (newest to oldest):
 
-> ~/deploy.yaml
-	*	1679683676	0
-	"	329	32
+> ~/old_deploy.yml
+	*	1680017934	0
+	"	345	2
 	^	329	33
-	.	329	32
+	.	329	33
+	+	329	33
+
+> ~/deployment.yml
+	*	1680017439	0
+	"	1	14
+	^	1	15
+	.	33	15
+	+	1	15
+	+	1	20
+	+	1	12
+	+	1	10
+	+	1	11
+	+	1	35
+	+	1	15
+	+	1	20
+	+	1	16
+	+	1	10
+	+	1	38
+	+	1	22
+	+	1	8
+	+	1	16
+	+	1	22
+	+	1	12
+	+	1	10
+	+	1	12
+	+	1	0
+	+	1	18
+	+	1	24
+	+	1	5
+	+	1	8
+	+	1	3
+	+	1	0
+	+	1	21
+	+	1	23
+	+	1	6
+	+	1	0
+	+	1	24
+	+	1	4
+	+	1	7
+	+	1	8
+	+	1	0
+	+	1	28
+	+	1	18
+	+	1	0
+	+	1	23
+	+	1	4
+	+	1	6
+	+	1	9
+	+	1	5
+	+	1	20
+	+	1	0
+	+	1	18
+	+	1	0
+	+	1	12
+	+	1	3
+	+	1	19
+	+	20	3
+	+	33	15
+
+> ~/deploy.yml
+	*	1680017375	0
+	"	641	0
+
+> ~/deploy
+	*	1680017355	0
+	"	1	0
+
+> ~/jenkins/templates/deployment.yml
+	*	1679988683	0
+	"	22	9
+	^	22	10
+	.	22	9
+	+	21	30
+	+	22	35
+	+	21	6
+	+	22	9
+	+	21	9
+	+	20	13
+	+	21	8
+	+	22	9
+
+> ~/jenkins/templates/old_deploy.yml
+	*	1679988340	0
+	"	439	4
+	.	30	0
+	+	1	0
+	+	30	0
+
+> ~/jenkin/values.yaml
+	*	1679911532	0
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/jenkin/Chart.yaml
+	*	1679911300	0
+	"	1	0
+
+> /tmp/kubectl-edit-2674926264.yaml
+	*	1679845269	0
+	"	21	0
+	.	21	0
+	+	21	0
+
+> ~/deploy.yaml
+	*	1679763812	0
+	"	269	2
+	^	329	33
+	.	349	0
 	+	329	0
 	+	326	0
 	+	329	32
+	+	339	0
+	+	349	0
 
 > ~/livneness.yml
 	*	1679603738	0
@@ -435,59 +717,6 @@
 	+	24	19
 	+	17	11
 	+	28	17
-
-> ~/deployment.yml
-	*	1679396067	0
-	"	24	28
-	^	24	29
-	.	24	29
-	+	2	15
-	+	4	20
-	+	6	12
-	+	4	10
-	+	6	11
-	+	18	35
-	+	2	15
-	+	4	20
-	+	2	16
-	+	4	10
-	+	18	38
-	+	9	22
-	+	9	8
-	+	9	16
-	+	9	22
-	+	9	12
-	+	9	10
-	+	4	10
-	+	8	12
-	+	9	0
-	+	20	18
-	+	20	24
-	+	20	5
-	+	20	8
-	+	20	3
-	+	1	0
-	+	20	21
-	+	20	23
-	+	20	6
-	+	20	0
-	+	20	24
-	+	20	4
-	+	20	7
-	+	20	8
-	+	20	0
-	+	20	28
-	+	20	18
-	+	20	0
-	+	20	23
-	+	20	4
-	+	20	6
-	+	20	9
-	+	20	5
-	+	20	20
-	+	20	0
-	+	20	18
-	+	24	29
 
 > ~/affinity.yml
 	*	1679332353	0

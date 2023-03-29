@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  labels:
+    app: jenkins
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - image: jenkins/jenkins:2.60.2
+          name: jenkins
+          env:
+          - name: JENKINS_OPTS
+            value: --prefix=/jenkins
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkinservice
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: jenkins

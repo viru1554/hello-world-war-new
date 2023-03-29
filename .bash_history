@@ -1356,3 +1356,507 @@ git commit -m "k8's manifest files"
 git status 
 git push --all https://github.com/viru1554/hello-world-war-new.git
 git pull https://github.com/viru1554/hello-world-war-new.git
+git branch 
+git branch k8's
+
+
+git branch 
+git branch kubernetes
+git branch 
+git checkout kubernetes 
+git branch 
+git status 
+git add .
+git status 
+git commit -m "chceking"
+git status 
+tree
+git pull https://github.com/viru1554/hello-world-war-new.git
+
+git pull https://github.com/viru1554/hello-world-war-new.git
+ls
+kubectl get nodes
+kubectl get ns
+ls
+vi deployment.yml 
+kubectl apply -f deployment.yml 
+kubectl delete -f deployment.yml 
+kubectl apply -f deployment.yml 
+kubectl get pods
+kubectl get svc
+kubectl get ns
+kubectl get ing
+kubectl get pods
+kubectl get pods -A
+cat clusterip.yml 
+kubectl get pods
+kubectl get ing
+kubectl get ns
+kubectl get svc
+kubectl get pv
+kubectl get pvc
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get ns
+kubectl get ns ingress-nginx 
+kubectl delete ns ingress-nginx --force
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get nodes
+kubectl get ns
+kubectl get pods
+kubectl get pv
+kubectl delete -f pv.yml 
+kubectl get pv
+kubectl get pvc
+kubectl get pods
+kubectl get ns
+kubectl get pv
+kubectl get ns
+kubectl get pods
+kubectl get ns
+kubectl describe ns ingress-nginx
+history 
+kubectl get ns
+kubectl describe svc ingress-nginx -n ingress-nginx
+kubectl describe ns ingress-nginx -n ingress-nginx
+kubectl get ns
+vi old_deploy.yml 
+kubectl apply -f old_deploy.yml 
+kubectl get ns
+kubectl delete -f old_deploy.yml 
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl delete ns ingress-nginx -n ingress-nginx
+kubectl get ns
+kubectl get svc
+kubectl get svc -A
+kubectl get ns
+kubectl edit ns ingress-nginx
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl delete -f deploy.yaml 
+kubectl get ns
+kubectl describe ns ingress-nginx
+kubectl get ns
+kubectl api-resources --verbs=list --namespaced -o name   | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ingress-nginx
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/stucked-namespace/finalize -f -
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl get pods -A
+kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces | grep Evicted
+kubectl delete pod calico-apiserver calico-apiserver-75496dd59d-4r754 --namespace=calico-apiserver
+kubectl delete pods --all --namespace=calico-apiserver --field-selector=status.phase=Failed
+kubectl get pods --all-namespaces | grep Evicted
+kubectl get ns
+kubectl get pods
+kubectl apply -f old_deploy.yml 
+kubectl get all -n ingress-nginx
+kubectl get pods -owide
+kubectl get pod -owide
+kubectl get pods -A
+kubectl delete ns tigera-operator
+kubectl delete ns tigera-operatorls
+ls
+kubectl get ns
+kubectl apply -f old_deploy.yml 
+kubectl get all -n ingress-nginx
+kubectl get pods -A
+kubectl get svc -A
+kubectl describe svc ingress-nginx -n ingress-nginx-controller
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl delete -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl get nodes
+kubectl get pods
+kubectl get pods -A
+kubectl delete pod tigera-operator-cffd8458f-zzz5x
+kubectl delete pod tigera-operator
+kubectl delete ns tigera-operator --all
+kubectl delete --help
+kubectl get namespace tigera-operator -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/tigera-operator/finalize -f -
+kubectl api-resources --verbs=list --namespaced -o name   | xargs -n 1 kubectl get --show-kind --ignore-not-found -n tigera-operator
+kubectl get namespace tigera-operator-cffd8458f-zvc4w -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/tigera-operator-cffd8458f-zvc4w/finalize -f -
+kubectl get namespace tigera-operator  -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/tigera-operator/finalize -f -
+kubectl delete ns tigera-operator --all
+kubectl get pods -A
+kubectl get pod -n calico-apiserver | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n calico-apiserver
+kubectl get pods -A
+kubectl get pod -n calico-apiserver | grep Error | awk '{print $1}' | xargs kubectl delete pod -n calico-apiserver
+kubectl get pods -A
+kubectl get pod -n calico-apiserver | grep ContainerStatusUnknown | awk '{print $1}' | xargs kubectl delete pod -n calico-apiserver
+kubectl get pods -A
+kubectl get pod -n calico-apiserver | grep CrashLoopBackOff | awk '{print $1}' | xargs kubectl delete pod -n calico-apiserver
+kubectl get pod -n calico-system | grep CrashLoopBackOff | awk '{print $1}' | xargs kubectl delete pod -n calico-system
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get pods -A
+kubectl get pod -n calico-system | grep CrashLoopBackOff | awk '{print $1}' | xargs kubectl delete pod -n calico-system
+kubectl get pods -A
+kubectl get pod -n calico-system | grep CrashLoopBackOff | awk '{print $1}' | xargs kubectl delete pod -n calico-system
+kubectl get pods -A
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get svc -A
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+helm --version
+helm version
+helm create jenkins
+ls
+cd jenkins/
+ls
+kubectl get svc
+kubectl get svc -a
+kubectl get svc -A
+kubectl logs ingress-nginx-controller
+kubectl logs ingress-nginx
+kubectl get pods -A
+kubectl get ing
+kubectl get svc -A
+kubectl get ns
+kubectl describe svc ingress-nginx-controller
+kubectl describe svc ingress-nginx
+kubectl describe svc ingress-nginx-controllr ingress-nginx
+kubectl describe svc ingress-nginx-controller -n apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name_deploy }}
+  labels:
+    app: {{ .Values.labels }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.labels }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels }}
+    spec:
+      containers:
+        - image: {{ .Values.dockerrepname }}/{{ .Values.dockerimage }}:{{ .Values.tag }}
+          name: {{ .Values.img_name }}
+          env:
+          - name: JENKINS_OPTS
+            value: --prefix=/jenkins
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.serv_name }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{ .Values.port }}
+      targetPort: {{ .Values.tar_port }}
+  selector:
+    app: {{ .Values.labels }}
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get svc -A
+history 
+helm version 
+ls
+cd jenkins/
+ls
+lscd ..
+cd ..
+cd jenkin
+ls
+rm -rf jenkni
+ls
+cd ..
+rm -rf jenkin
+ls
+helm version
+helm create -p jenkins
+helm version
+helm create jenkins
+helm version
+helm create jenkin
+cd jenkin
+ls
+cd charts/
+ls
+cd ..
+vi Chart.yaml 
+cd templates/
+ls
+cd ..
+vi values.yaml 
+ls
+rm -rf charts/
+ls
+cd templates/
+ls
+rm -rf *
+ls
+cd ..
+ls
+kubectl get pods -A
+kubectl delete ns calico-system
+kubectl get pod -n calico-system | grep CrashLoopBackOff | awk '{print $1}' | xargs kubectl delete pod -n calico-system
+kubectl get pod -n calico-kube-controllers-6c95665469-l8gk | grep CrashLoopBackOff | awk '{print $1}' | xargs kubectl delete pod -n calico-kube-controllers-6c95665469-l8gkn
+history 
+kubectl get pods -A
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+ls
+cd jenkins/
+ls
+cd ..
+cd jenkin
+ls
+cd 
+rm -rf jenkins
+ls
+cd jenkin/
+ls
+kubectl get svc -A
+kubectl get ng
+history 
+kubectl delete -f old_deploy.yml 
+kubectl get ns
+apt update 
+kubectl get ns
+kubectl get pods -A
+kubectl get ns
+kubectl delete ns calico-system --force
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl get namespace calico-system -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/calico-system/finalize -f -
+kubectl get ns
+kubectl get pods
+kubectl get pods -A
+kubectl get svc
+kubectl get svc -A
+kubectl apply -f old_deploy.yml 
+kubectl get svc -A
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get all -n ingress-nginx
+kubectl delete -f old_deploy.yml 
+kubectl get ns
+kubectl get pods -A
+kubectl get svc -A
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl apply -f old_deploy.yml
+kubectl get ns
+kubectl get all -n ingress-nginx
+kubectl get pods -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+ls
+vi deployment.yml 
+cp deployment.yml jenkins/templates
+mv jenkin jenkins
+cp deployment.yml jenkins/templates
+cp old_deploy.yml jenkins/templates
+cp deploy.yml jenkins/templates
+mv deploy.yaml deploy.yml 
+cp deploy.yml jenkins/templates
+ls
+cd jenkins/
+ls
+cd templates/
+ls
+kubectl get pods
+kubectl get ing
+kubectl get pods
+cd ..
+helm install myjen
+helm install myjen .
+helm install myjenkin .
+kubectl get nodes
+kubectl cluster-info
+kubectl cluster-info dump
+ls
+cd templates/
+ls
+cat old_deploy.yml 
+vi old_deploy.yml 
+[A
+vi old_deploy.yml 
+cd ..
+helm install myjenkins .
+helm ls
+helm version
+kubectl get pods -A
+kubectl get all -n ingress-nginx
+kubectl delete -f old_deploy.yml 
+kubectl get all -n ingress-nginx
+kubectl get ns
+history 
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl get all -n ingress-nginx
+ls
+kubectl apply -f old_deploy.yml 
+kubectl get ns
+kubectl get all -n ingress-nginx
+kubectl  describe svc ingress-nginx-controller -n ingress-nginx-controller
+kubectl  describe svc ingress-nginx-controller -n ingress-nginx'
+kubectl  describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get ns
+cd jenkins/
+ls
+cd templates/
+ls
+cd ..
+helm install myjenkins .
+helm uninstall myjenkins .
+helm uninstall myjenkins
+helm ls
+ls
+cd jenkins/
+ls
+cd templates/
+ls
+kubectl get pods
+kubectl get ing
+ls
+cat deploy.yml 
+cat deployment.yml 
+kubectl get pods -A
+kubectl get svc -A
+kubectl delete -f old_deploy.yml 
+kubectl get pods
+kubectl get svc -A
+kubectl get pods -A
+kubectl delete -f deployment.yml 
+kubectl delete -f deploy.yml 
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl get nodes
+kubectl get ns
+kubectl apply -f old_deploy.yml 
+kubectl get ns
+kubectl get all -n ingress-nginx
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+ls
+cd jenkins/
+cat Chart.yaml 
+ls
+helm install myjen .
+cd templates/
+vi old_deploy.yml 
+vi deployment.yml 
+helm install myjen .
+cd ..
+helm install myjen .
+cd templates/
+vi deployment.yml 
+cd ..
+helm install myjen .
+ls 
+cd templates/
+ls
+cd ..
+helm install myjen .
+cd jenkins/
+ls
+helm install myjen .
+helm uninstall myjen .
+rm -rf myjen .
+helm delete myjen
+rm -rf myjen 
+ls
+cat templates/ls
+ls templates/
+helm install myjen .
+cd g:
+cd G:
+cd jenkins/
+helm install jenkin .
+ls
+cd jenkins/
+ls
+ls templates/
+helm install jenkins .
+kubectl get nodes
+kubectl get pos
+kubectl get pods
+kubectl get ing
+kubectl get ns
+kubectl get all -n ingress-nginx
+c 
+cd 
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl delete -f old_deploy.yml 
+cd jenkins/
+helm install jenkin .
+cd jenkins/
+helm install trial-jenkin .
+cd jenkins/
+helm install trial-jenkin .
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl get svc
+kubectl delete -f loadbalancer.yml 
+kubectl get svc -A
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+kubectl delete -f old_deploy.yml 
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+history 
+cd jenkins/
+ls
+helm install jenkins .
+ls
+vi deploy
+vi deploy.yml 
+vi deployment.yml 
+ls
+cat deployment.yml 
+cd jenkins/
+cd templates/
+cat deployment.yml 
+cd 
+ls
+cat old_deploy.yml 
+vi old_deploy.yml 
+cat old_deploy.yml 
+ls
+cat old_deploy.yml 
+ls
+kubectl get pods -A
+kubectl get svc -A
+kubectl get ns
+kubectl delete ns ingress-nginx --force
+kubectl get ns
+kubectl get pods -A
+kubectl get nodes
+kubectl get pods
+kubectl get pods -n ingress-nginx
+kubectl get all -n ingress-nginx
+kubectl get ns
+kubectl get namespace ingress-nginx -o json   | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/"   | kubectl replace --raw /api/v1/namespaces/ingress-nginx/finalize -f -
+kubectl get ns
+ls
+kubectl apply -f deploy.yml 
+kubectl get all -n ingress-nginx
+kubectl get svc -A
+kubectl describe svc ingress-nginx-controller -n ingress-nginx
+kubectl get svc -A
+kubectl delete -f deploy.yml 
